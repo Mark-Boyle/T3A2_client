@@ -32,9 +32,12 @@ export default function LogIn({history}){
             console.log(data)
             if(data.token){
                 localStorage.setItem('token', data.token)   //Storing the token received from the API in local storage.
+                localStorage.setItem('username', data.username)
                     console.log("Success!!!")
                 setAuth({
                     ...auth,
+                    username: data.username,
+                    email: data.email,
                     loggedIn: true
                 })
                     history.push('/')     //Redirecting to home page.

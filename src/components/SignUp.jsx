@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import {AuthContext} from '../contexts/AuthProvider';
 
 export default function SignUp({history}){
+
+    const [auth, setAuth] = useContext(AuthContext);
 
     const [signUpForm, setSignUpForm] = useState({
         user:{
@@ -34,7 +37,14 @@ export default function SignUp({history}){
         const data = await response.json();
         if(data.token){
             localStorage.setItem('token', data.token)   //Storing the token received from the API in local storage.
+            localStorage.setItem('username', data.username)
                 console.log("Success!!!")
+                setAuth({
+                    ...auth,
+                    username: data.username,
+                    email: data.email,
+                    loggedIn: true
+                })
                 history.push('/')
         }else{
             setErrorMessage(data)

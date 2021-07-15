@@ -7,7 +7,8 @@ export const AuthContext = React.createContext({
 export default function AuthProvider({children}) {
 
     const [auth, setAuth] = useState({
-        loggedIn: !!localStorage.getItem('token')
+        loggedIn: !!localStorage.getItem('token'),
+        username: localStorage.getItem('username')
     })
     return (
         <AuthContext.Provider value={[auth, setAuth]}>
