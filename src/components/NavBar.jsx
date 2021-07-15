@@ -16,17 +16,17 @@ export default function NavBar() {
     }
     return (
         <nav>
-`<NavLink to='/'>Home</NavLink>
+            <NavLink to='/'>Home</NavLink>
             {auth.loggedIn ? (
-                <>
-                    <h2>Logged in as: {auth.username}</h2>
-                    <div onClick={signOut}>Sign Out</div>
-                </>
-            ) : (
-                <>
-                    <NavLink to='/login'>Login</NavLink>
-                    <NavLink to='/sign-up'>Sign Up</NavLink>
-                </>
+                    <>
+                        <h2>Logged in as: {auth.username}</h2>
+                        <div onClick={signOut}>Sign Out</div>
+                    </>
+                ) : (
+                    <>
+                        <NavLink to='/login'>Login</NavLink>
+                        <NavLink to='/sign-up'>Sign Up</NavLink>
+                    </>
             )}
         </nav>
     );
