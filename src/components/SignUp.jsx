@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function SignUp(){
+export default function SignUp({history}){
 
     const [signUpForm, setSignUpForm] = useState({
         user:{
@@ -10,6 +10,8 @@ export default function SignUp(){
             password_confirmation: ''
         }
     })
+
+    const [errorMessage, setErrorMessage] = useState('');
 
     const changeInput = (event) => {
         setSignUpForm({
@@ -30,7 +32,13 @@ export default function SignUp(){
         })
 
         const data = await response.json();
-        console.log(data)
+        if(data.token){
+            localStorage.setItem('token', data.token)   //Storing the token received from the API in local storage.
+                console.log("Success!!!")
+                history.push('/')
+        }else{
+            setErrorMessage(data)
+        }
     }
 
     const signUpUser = (event) =>{
@@ -41,16 +49,19 @@ export default function SignUp(){
     const {username, email, password, password_confirmation} = signUpForm
 
     return(
-        <form onSubmit={signUpUser}>
-            <label>Username</label>
-            <input type="text" value= {username} onChange={changeInput} name='username'/>
-            <label>Email</label>
-            <input type="email" value= {email} onChange={changeInput} name='email'/>
-            <label>Password</label>
-            <input type="password" value= {password} onChange={changeInput} name='password'/>
-            <label>Password Confirmation</label>
-            <input type="password" value= {password_confirmation} onChange={changeInput} name='password_confirmation'/>
-            <input type="submit" value="Sign Up"/>
-        </form>
+        <div>
+            {errorMessage && Object.keys(errorMessage).map((key) => <li key={key}>{key} {errorMessage[key][0]}</li>)}
+            <form onSubmit={signUpUser}>
+                <label>Username</label>
+                <input type="text" value= {username} onChange={changeInput} name='username'/>
+                <label>Email</label>
+                <input type="email" value= {email} onChange={changeInput} name='email'/>
+                <label>Password</label>
+                <input type="password" value= {password} onChange={changeInput} name='password'/>
+                <label>Password Confirmation</label>
+                <input type="password" value= {password_confirmation} onChange={changeInput} name='password_confirmation'/>
+                <input type="submit" value="Sign Up"/>
+            </form>
+        </div>
     ) 
 }

@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import {AuthContext} from "../contexts/AuthProvider"
 
 export default function LogIn({history}){
+
+    const [auth, setAuth] = useContext(AuthContext);
 
     const [loginForm, setLoginForm] = useState({
         username: "",
@@ -30,7 +33,12 @@ export default function LogIn({history}){
             if(data.token){
                 localStorage.setItem('token', data.token)   //Storing the token received from the API in local storage.
                     console.log("Success!!!")
+                setAuth({
+                    ...auth,
+                    loggedIn: true
+                })
                     history.push('/')     //Redirecting to home page.
+
             }else{
                 setErrorMessage(data.error)
             }
