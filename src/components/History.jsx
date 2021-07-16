@@ -12,7 +12,7 @@ export default function History() {
         });
         console.log("Waiting for response")
         const data = await response.json()
-        // setBooks(data);
+        setBooks(data);
         console.log(data)
     }
 
