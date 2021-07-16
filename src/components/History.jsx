@@ -5,7 +5,7 @@ export default function History() {
 
     const fetchBooks = async () =>{
         console.log("Conducting fetchBooks")
-        const response = await fetch('http://localhost:3000/books', {
+        const response = await fetch('http://localhost:3000/books/history', {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
             },
@@ -22,7 +22,7 @@ export default function History() {
 
     return (
         <div>
-            <ul>{books.map(book => <li>{book.author}</li>)}</ul>         
+            <ul>{books.map(book => <li key={book.id}>{book.author}</li>)}</ul>         
         </div>
     )
 }
