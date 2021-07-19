@@ -17,6 +17,9 @@ export default function Book({match}) {
     useEffect(() => {
         fetchBook();
     }, [])
+
+    console.log(book.review.description)
+
     return (
         <div>
             <h3>{book.title}</h3>
@@ -24,6 +27,11 @@ export default function Book({match}) {
             <p> Year: {book.year}</p>
             <p> Status: {book.status}</p>
             <h3>Review</h3>
+            <p> Description: {book.review.description}</p>
+            <p> Rating:  {book.review.rating}</p>
+            
+           
+        
         </div>
     )
 }
