@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
 
 export default function History() {
     const [books, setBooks] = useState([])
@@ -12,7 +13,7 @@ export default function History() {
         });
         console.log("Waiting for response")
         const data = await response.json()
-        setBooks(data);
+        // setBooks(data);
         console.log(data)
     }
 
@@ -22,7 +23,7 @@ export default function History() {
 
     return (
         <div>
-            <ul>{books.map(book => <li key={book.id}>{book.author}</li>)}</ul>         
+            <ul>{books.map(book => <li key={book.id}><Link to={`/books/${book.id}`}>{book.title}</Link></li>)}</ul>         
         </div>
     )
 }
