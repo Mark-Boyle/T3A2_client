@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react'
+import React, {useEffect, useState, useCallback } from 'react'
 import {fetchData, updateRequest} from '../utils/apiRequest';
 import EditableField from './EditableField'
 
@@ -6,12 +6,12 @@ export default function Book({match}) {
     console.log(match)
     const [book, setBook] = useState({});
     
-    const fetchBook = async () => {
+    const fetchBook = useCallback(async () => {
         const data = await fetchData(`http://localhost:3000/books/${match.params.id}`)
         
         setBook(data);
         
-    }
+    },[match.params.id]);
     
     const updateData = (attributeName, newValue) => {
         console.log(newValue);
@@ -30,7 +30,7 @@ export default function Book({match}) {
 
     useEffect(() => {
         fetchBook();
-    }, [])
+    }, [fetchBook])
 
     // console.log(book.review.description)
 
