@@ -21,6 +21,10 @@ export default function NavBar() {
                     <>
                         <h2>Logged in as: {auth.username}</h2>
                         <div onClick={signOut}>Sign Out</div>
+                        <NavLink to='/addbook'>Add Book</NavLink>
+                        <NavLink to='/history'>History</NavLink>
+                        <NavLink to='/wishlist'>Wishlist</NavLink>
+
                     </>
                 ) : (
                     <>
