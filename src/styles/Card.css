@@ -14,11 +14,12 @@
     color: black;
 }
 
-/* .card-container{
+.card-container{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-} */
+    flex-wrap: wrap;
+}
 
 
 

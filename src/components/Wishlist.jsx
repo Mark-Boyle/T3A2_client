@@ -25,9 +25,9 @@ export default function Wishlist() {
     }, [])
 
     return (
-        <div className="card-container">
-            <ul>{books.map(book => <li key={book.id}>      
-            <Link to={`/books/${book.id}`}>
+        <div className="col md={4}">
+            <div className="card-container">{books.map(book => <p>      
+            <Link style={{textDecoration: "none"}} to={`/books/${book.id}`}>
             <Card className="card" style={{ width: '18rem', backgroundColor: "#EC9C00"}}>
                   {/* <Card.Img variant="top" src="../../public/defaultImage.jpg" /> */}
                   <Card.Body>
@@ -38,7 +38,8 @@ export default function Wishlist() {
                   </Card.Body>
                 </Card>
                 </Link>
-            </li>)}</ul>         
+            </p>)}</div>    
+                
         </div>
     )
 }

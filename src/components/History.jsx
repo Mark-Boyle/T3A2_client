@@ -38,8 +38,8 @@ export default function History() {
 
     return (
         <div className="card-container">
-            <ul>{books.map(book => <li key={book.id}>      
-            <Link to={`/books/${book.id}`}>
+            {books.map(book =>     
+            <Link style={{textDecoration: "none"}} to={`/books/${book.id}`}>
             <Card className="card" style={{ width: '18rem' }}>
                   {/* <Card.Img variant="top" src="../../public/defaultImage.jpg" /> */}
                   <Card.Body>
@@ -51,7 +51,7 @@ export default function History() {
                   </Card.Body>
                 </Card>
                 </Link>
-            </li>)}</ul>         
+            )}       
         </div>
     )
 }

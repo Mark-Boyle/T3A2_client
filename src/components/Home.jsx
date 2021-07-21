@@ -33,9 +33,10 @@ export default function Home(){
             </div>
             ) : <h1>Not Logged In</h1>}
             <section>
-            <div className="col-md-4">
-            <ul>
-                {books.map(book => <li key={book.id}>
+            <div className="card-container">
+            
+                {books.map(book =>
+                <Link style={{textDecoration: "none"}} to={`/books/${book.id}`}>
                 <Card className='card' style={{ width: '18rem' }}>
                   {/* <Card.Img variant="top" src="../../public/defaultImage.jpg" /> */}
                   <Card.Body>
@@ -46,8 +47,9 @@ export default function Home(){
                     <Button className='card-button'>Details</Button>
                   </Card.Body>
                 </Card>
-                </li>)}
-            </ul>
+                </Link>
+                )}
+            
             </div>
             </section>
         </div>

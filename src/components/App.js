@@ -19,7 +19,8 @@ function App() {
   return (
     <AuthProvider>
       <Router>  
-        <NavigationBar />                                     
+        <NavigationBar />    
+        <h1 className="title">Libro</h1>                                 
         <Switch>                                      
           <Route path="/" exact component={Home} />         
           <Route path="/login" exact component={LogIn} />        
