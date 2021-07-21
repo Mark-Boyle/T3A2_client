@@ -30,7 +30,7 @@ export const deleteRequest = async (url) => {
     
 }
 
-export const updateRequest = async (url, body) => {
+export const updateRequest = async (url, body, callBack) => {
     const response = await fetch(url, {
         method: 'PATCH',
         headers: {
@@ -40,5 +40,6 @@ export const updateRequest = async (url, body) => {
         body: JSON.stringify(body)
     })
     const data = await response.json();
+    if(callBack) {callBack()} 
     return data
 }
