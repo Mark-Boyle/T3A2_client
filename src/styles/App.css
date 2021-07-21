@@ -9,4 +9,18 @@ body {
 
 .title{
     margin: auto;
+    text-align: center;
+    font-size: 100px;
+}
+
+.button{
+    background-color: #8F3417;
+    color: black;
+    border: solid 2px black;
+}
+
+.button:hover{
+    background-color: #8F3417;
+    color: #EC9C00;
+    border: solid 2px #EC9C00;
 }

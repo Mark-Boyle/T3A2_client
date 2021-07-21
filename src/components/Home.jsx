@@ -34,7 +34,6 @@ export default function Home(){
             ) : <h1>Not Logged In</h1>}
             <section>
             <div className="card-container">
-            
                 {books.map(book =>
                 <Link style={{textDecoration: "none"}} to={`/books/${book.id}`}>
                 <Card className='card' style={{ width: '18rem' }}>
@@ -44,7 +43,7 @@ export default function Home(){
                     <Card.Text>
                     Author: {book.author}
                     </Card.Text>
-                    <Button className='card-button'>Details</Button>
+                    {/* <Button className='card-button'>Details</Button> */}
                   </Card.Body>
                 </Card>
                 </Link>

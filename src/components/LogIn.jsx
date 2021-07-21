@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import {AuthContext} from "../contexts/AuthProvider";
 import {Form, Button} from 'react-bootstrap';
+import '../styles/Form.css';
 
 export default function LogIn({history}){
 
@@ -55,16 +56,19 @@ export default function LogIn({history}){
 
     return(
             <>
-        <div>
-            Log In Page
+        <div className="form-container">
+            
             {errorMessage && (<h5>{errorMessage}</h5>)} 
-            <form onSubmit={onSubmit}>
+            <form className="form" onSubmit={onSubmit}>
+                <h2>Log In</h2>
+                <label>Username: </label>
                 <input type="text" name="username" id='username' placeholder="username" value ={loginForm.username} onChange={changeInput} />
+                <label>Password: </label>
                 <input type="password" name="password" placeholder="password" value ={loginForm.password} onChange={changeInput} />
-                <input type="submit"/>
+                <input className="form-button" type="submit"/>
             </form>
         </div>
-            <Form>
+            {/* <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
@@ -78,7 +82,7 @@ export default function LogIn({history}){
                 <Button variant="primary" type="submit">
                 Submit
                 </Button>
-            </Form>
+            </Form> */}
             </>
     )
 }

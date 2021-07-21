@@ -58,7 +58,8 @@ export default function Book({match}) {
     // console.log(book.review)
 
     return (
-        <div>
+        <div className="form-container">
+            <div className="form">
             <EditableField value={book.title} updateData={updateData} attribute='title' />
             <EditableField value={book.author} updateData={updateData} attribute='author'/>
             <EditableField value={book.year} updateData={updateData} attribute='year'/>
@@ -72,6 +73,7 @@ export default function Book({match}) {
                  <EditableField value={book.review.rating} updateData={updateReview} attribute='rating'/>
                  </div> 
             }
+            </div>
         </div>
     )
 }

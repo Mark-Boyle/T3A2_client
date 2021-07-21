@@ -1,0 +1,37 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    color: black;
+}
+
+.form-container{
+    width: 75vw;
+    height: 80vh;
+    background-color: #EC9C00;
+    margin: auto auto;
+    border: solid 2px black;
+    border-radius:50px;
+}
+
+.form input{
+    background-color: #EC9C00;
+    margin: 10px;
+}
+
+.form-button{
+    background-color: #8F3417;
+    color: black;
+    border: solid 2px black;
+}
+
+.form-button:hover{
+    background-color: #8F3417;
+    color: #EC9C00;
+    border: solid 2px #EC9C00;
+}
