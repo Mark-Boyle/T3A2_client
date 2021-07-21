@@ -40,17 +40,17 @@ export default function NavigationBar() {
         
         <Navbar expand='sm' bg="#8F3417" variant="light">
             <Container>
-                <Navbar.Brand href="/">Home</Navbar.Brand>
+                <Navbar.Brand style={{color: "#EC9C00"}} href="/">Home</Navbar.Brand>
             {auth.loggedIn ? (
                 <>
                     <Nav className="me-auto">
-                        <Nav.Link class='navbar-links' href="/history">History</Nav.Link>
-                        <Nav.Link href="/wishlist">Wishlist</Nav.Link>
-                        <Nav.Link href="/addbook">Add Book</Nav.Link>
+                        <Nav.Link style={{color: "#EC9C00"}} href="/history">History</Nav.Link>
+                        <Nav.Link  style={{color: "#EC9C00"}} href="/wishlist">Wishlist</Nav.Link>
+                        <Nav.Link style={{color: "#EC9C00"}} href="/addbook">Add Book</Nav.Link>
                         
-                        <Nav.Link>Logged in as: {auth.username}</Nav.Link>
-                        <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
-
+                        <Nav.Link style={{color: "#EC9C00"}} >Logged in as: {auth.username}</Nav.Link>
+                        <Nav.Link style={{color: "#EC9C00"}} onClick={signOut}>Sign Out</Nav.Link>
+                        
                     </Nav>
                 </>
             ) : (

@@ -1,3 +1,5 @@
-.navbar-links{
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+.navbarLinks{
     color: #EC9C00;
 }

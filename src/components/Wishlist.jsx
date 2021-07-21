@@ -28,7 +28,7 @@ export default function Wishlist() {
         <div className="card-container">
             <ul>{books.map(book => <li key={book.id}>      
             <Link to={`/books/${book.id}`}>
-            <Card className="card" style={{ width: '18rem' }}>
+            <Card className="card" style={{ width: '18rem', backgroundColor: "#EC9C00"}}>
                   {/* <Card.Img variant="top" src="../../public/defaultImage.jpg" /> */}
                   <Card.Body>
                     <Card.Title>{book.title}</Card.Title>
