@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import Home from './Home';
-import NavBar from './NavBar';
+import NavigationBar from './NavigationBar';
 import AuthProvider from "../contexts/AuthProvider"
 import History from './History';
 import Wishlist from './Wishlist';
@@ -18,7 +18,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>  
-        <NavBar />                                     
+        <NavigationBar />                                     
         <Switch>                                      
           <Route path="/" exact component={Home} />         
           <Route path="/login" exact component={LogIn} />        
