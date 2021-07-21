@@ -1,6 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { Link } from "react-router-dom";
-import {AuthContext} from "../contexts/AuthProvider"
+import {AuthContext} from "../contexts/AuthProvider";
+import { Card, Button } from 'react-bootstrap';
+import '../styles/Card.css';
 
 
 export default function Home(){
@@ -26,14 +28,27 @@ export default function Home(){
         <div>
             {auth.loggedIn ? (
             <div>
-                <h1>Logged In</h1>
+                {/* <h1>Logged In</h1> */}
                 <h2>Welcome {auth.username}</h2>
             </div>
             ) : <h1>Not Logged In</h1>}
             <section>
+            <div className="col-md-4">
             <ul>
-                {books.map(book => <li key={book.id}>{book.title}, {book.author}</li>)}
+                {books.map(book => <li key={book.id}>
+                <Card className='card' style={{ width: '18rem' }}>
+                  {/* <Card.Img variant="top" src="../../public/defaultImage.jpg" /> */}
+                  <Card.Body>
+                    <Card.Title>{book.title}</Card.Title>
+                    <Card.Text>
+                    Author: {book.author}
+                    </Card.Text>
+                    <Button className='card-button'>Details</Button>
+                  </Card.Body>
+                </Card>
+                </li>)}
             </ul>
+            </div>
             </section>
         </div>
     )

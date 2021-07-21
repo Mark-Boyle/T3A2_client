@@ -10,6 +10,7 @@ import Wishlist from './Wishlist';
 import BookForm from './BookForm';
 import ProtectedRoute from "../utils/ProtectedRoute";
 import Book from './Book';
+import '../styles/App.css';
 
 
 

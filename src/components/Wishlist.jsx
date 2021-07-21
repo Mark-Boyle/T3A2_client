@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
+import { Card, Button } from 'react-bootstrap';
+import '../styles/Card.css';
 
 
 export default function Wishlist() {
@@ -23,8 +25,20 @@ export default function Wishlist() {
     }, [])
 
     return (
-        <div>
-            <ul>{books.map(book => <li key={book.id}><Link to={`/books/${book.id}`}>{book.title}</Link></li>)}</ul>         
+        <div className="card-container">
+            <ul>{books.map(book => <li key={book.id}>      
+            <Link to={`/books/${book.id}`}>
+            <Card className="card" style={{ width: '18rem' }}>
+                  {/* <Card.Img variant="top" src="../../public/defaultImage.jpg" /> */}
+                  <Card.Body>
+                    <Card.Title>{book.title}</Card.Title>
+                    <Card.Text>
+                    Author: {book.author}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+                </Link>
+            </li>)}</ul>         
         </div>
     )
 }

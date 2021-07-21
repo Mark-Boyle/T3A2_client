@@ -1,1 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css?family=Schoolbell');
+
+body {
+    font-family: 'Schoolbell';
+    background-color: #8F3417;
+    color: #EC9C00;
+}

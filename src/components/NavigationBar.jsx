@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import {AuthContext} from "../contexts/AuthProvider";
 import {Navbar, Container, Nav} from 'react-bootstrap';
 import '../styles/App.css';
+import '../styles/NavBar.css';
 
 export default function NavigationBar() {
 
@@ -37,16 +38,19 @@ export default function NavigationBar() {
             )}
         </nav> */}
         
-        <Navbar bg="light" variant="light">
+        <Navbar expand='sm' bg="#8F3417" variant="light">
             <Container>
                 <Navbar.Brand href="/">Home</Navbar.Brand>
             {auth.loggedIn ? (
                 <>
                     <Nav className="me-auto">
-                        <Nav.Link href="/history">History</Nav.Link>
+                        <Nav.Link class='navbar-links' href="/history">History</Nav.Link>
                         <Nav.Link href="/wishlist">Wishlist</Nav.Link>
                         <Nav.Link href="/addbook">Add Book</Nav.Link>
+                        
+                        <Nav.Link>Logged in as: {auth.username}</Nav.Link>
                         <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
+
                     </Nav>
                 </>
             ) : (

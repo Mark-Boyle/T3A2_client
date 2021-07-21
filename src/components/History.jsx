@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import {deleteRequest} from '../utils/apiRequest';
+import { Card, Button } from 'react-bootstrap';
+import '../styles/Card.css';
 
 export default function History() {
     const [books, setBooks] = useState([])
@@ -35,10 +37,20 @@ export default function History() {
   
 
     return (
-        <div>
-            <ul>{books.map(book => <li key={book.id}><Link to={`/books/${book.id}`}>{book.title}</Link>
-            <button onClick={() => deleteBook(book.id)}>Delete</button>
-            <button>Give Review</button>
+        <div className="card-container">
+            <ul>{books.map(book => <li key={book.id}>      
+            <Link to={`/books/${book.id}`}>
+            <Card className="card" style={{ width: '18rem' }}>
+                  {/* <Card.Img variant="top" src="../../public/defaultImage.jpg" /> */}
+                  <Card.Body>
+                    <Card.Title>{book.title}</Card.Title>
+                    <Card.Text>
+                    Author: {book.author}
+                    </Card.Text>
+                    <Button className="card-button" onClick={() => deleteBook(book.id)}>Delete</Button>
+                  </Card.Body>
+                </Card>
+                </Link>
             </li>)}</ul>         
         </div>
     )
