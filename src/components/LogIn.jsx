@@ -22,7 +22,7 @@ export default function LogIn({history}){
     }
 
     const sendLoginRequest = async () => {
-            const response = await fetch('http://localhost:3000/login', {      //Sending a POST request to the login method of the User controller in the Rails API.
+            const response = await fetch(process.env.REACT_APP_API_URL + "/login", {      //Sending a POST request to the login method of the User controller in the Rails API.
                 method: 'POST',                                                  //The type of http request is POST.
                 headers: {
                     "Content-Type": "application/json"
