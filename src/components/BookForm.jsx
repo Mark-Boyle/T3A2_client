@@ -27,7 +27,7 @@ export default function BookForm() {
 
       const createNewBook = (event) => {
           event.preventDefault();
-          postData('http://localhost:3000/books', bookForm)
+          postData(process.env.REACT_APP_API_URL + "/books", bookForm)
           setBookForm(formInitialState)
       }
 

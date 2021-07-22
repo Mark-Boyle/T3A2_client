@@ -10,7 +10,7 @@ export default function History() {
 
     const fetchBooks = async () =>{
         console.log("Conducting fetchBooks")
-        const response = await fetch('http://localhost:3000/books/history', {
+        const response = await fetch(process.env.REACT_APP_API_URL + "/books/history", {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
             },
@@ -23,7 +23,7 @@ export default function History() {
 
 
     const deleteBook = (bookId) =>{
-        deleteRequest(`http://localhost:3000/books/${bookId}`)
+        deleteRequest(process.env.REACT_APP_API_URL + `/books/${bookId}`)
         console.log("After Delete!")
         setUpdate(!update)
         console.log("after update")

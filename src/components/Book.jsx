@@ -8,7 +8,7 @@ export default function Book({match}) {
     const [book, setBook] = useState({});
     
     const fetchBook = async () => {
-        const data = await fetchData(`http://localhost:3000/books/${match.params.id}`)
+        const data = await fetchData(process.env.REACT_APP_API_URL + `/books/${match.params.id}`)
         console.log(data)
         setBook(data);
     
@@ -22,7 +22,7 @@ export default function Book({match}) {
             }
         }
         
-        updateRequest(`http://localhost:3000/books/${book.id}`, updateData, fetchBook)
+        updateRequest(process.env.REACT_APP_API_URL + `/books/${book.id}`, updateData, fetchBook)
         // call on fetch book again to refetch the new data for the front end
         // fetchBook();
     }
@@ -36,7 +36,7 @@ export default function Book({match}) {
             }
         }
         
-        updateRequest(`http://localhost:3000/reviews/${book.id}`, updateData, fetchBook)
+        updateRequest(process.env.REACT_APP_API_URL + `/reviews/${book.id}`, updateData, fetchBook)
         // call on fetch book again to refetch the new data for the front end
         // console.log("fetching book")
         // fetchBook();

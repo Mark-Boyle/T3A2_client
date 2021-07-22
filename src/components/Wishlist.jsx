@@ -9,7 +9,7 @@ export default function Wishlist() {
 
     const fetchBooks = async () => {
         console.log("Conducting fetchBooks")
-        const response = await fetch('http://localhost:3000/books/wishlist', {
+        const response = await fetch(process.env.REACT_APP_API_URL + "/books/wishlist", {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
             },

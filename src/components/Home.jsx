@@ -10,7 +10,7 @@ export default function Home(){
     const [books, setBooks] = useState([]);
 
     const fetchBooks = async () => {
-        const response = await fetch('http://localhost:3000/books', {
+        const response = await fetch(process.env.REACT_APP_API_URL + "/books", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
