@@ -20,7 +20,8 @@ function App() {
     <AuthProvider>
       <Router>  
         <NavigationBar />    
-        <h1 className="title">Libro</h1>                                 
+        <h1 className="title">Libro</h1>
+        <h5 className="motto">Where will you escape to next...</h5>                                 
         <Switch>                                      
           <Route path="/" exact component={Home} />         
           <Route path="/login" exact component={LogIn} />        

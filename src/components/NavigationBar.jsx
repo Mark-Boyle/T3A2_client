@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { NavLink } from 'react-router-dom';
 import {AuthContext} from "../contexts/AuthProvider";
-import {Navbar, Container, Nav} from 'react-bootstrap';
+import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import '../styles/App.css';
 import '../styles/NavBar.css';
 
@@ -38,11 +38,17 @@ export default function NavigationBar() {
             )}
         </nav> */}
         
-        <Navbar expand='sm' bg="#8F3417" variant="light">
+
+
+
+
+        <Navbar expand='lg' bg="#8F3417" variant="light" className="navbar">
             <Container>
                 <Navbar.Brand style={{color: "#EC9C00"}} href="/">Home</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" style={{color: "#EC9C00"}} className="custom-toggler"/>
             {auth.loggedIn ? (
                 <>
+                <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link style={{color: "#EC9C00"}} href="/history">History</Nav.Link>
                         <Nav.Link  style={{color: "#EC9C00"}} href="/wishlist">Wishlist</Nav.Link>
@@ -52,6 +58,7 @@ export default function NavigationBar() {
                         <Nav.Link style={{color: "#EC9C00"}} onClick={signOut}>Sign Out</Nav.Link>
                         
                     </Nav>
+                </Navbar.Collapse>
                 </>
             ) : (
                 <>
@@ -64,6 +71,23 @@ export default function NavigationBar() {
 
             </Container>
         </Navbar>
+
+
+
+
+{/* <Navbar bg="light" expand="lg">
+  <Container>
+    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+    
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto">
+        <Nav.Link href="#home">Home</Nav.Link>
+        <Nav.Link href="#link">Link</Nav.Link>
+        
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar> */}
         </>
     );
 }
