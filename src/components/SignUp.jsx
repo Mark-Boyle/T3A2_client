@@ -59,9 +59,10 @@ export default function SignUp({history}){
     const {username, email, password, password_confirmation} = signUpForm
 
     return(
-        <div>
+        <div className="form-container">
             {errorMessage && Object.keys(errorMessage).map((key) => <li key={key}>{key} {errorMessage[key][0]}</li>)}
-            <form onSubmit={signUpUser}>
+            <form className="form" onSubmit={signUpUser}>
+                <h2>Sign Up</h2>
                 <label>Username</label>
                 <input type="text" value= {username} onChange={changeInput} name='username'/>
                 <label>Email</label>

@@ -63,8 +63,8 @@ export default function NavigationBar() {
             ) : (
                 <>
                     <Nav className="me-auto">
-                        <Nav.Link href="/login">Log In</Nav.Link>
-                        <Nav.Link href="/sign-up">Sign Up</Nav.Link>
+                        <Nav.Link style={{color: "#EC9C00"}} href="/login">Log In</Nav.Link>
+                        <Nav.Link style={{color: "#EC9C00"}} href="/sign-up">Sign Up</Nav.Link>
                     </Nav>
                 </>
             )}

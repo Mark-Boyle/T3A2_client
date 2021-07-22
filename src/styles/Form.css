@@ -39,3 +39,7 @@
 .edit-icon{
     margin-left: 10px;
 }
+
+.label{
+    display: inline-block;
+}

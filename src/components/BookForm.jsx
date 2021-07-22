@@ -36,6 +36,7 @@ export default function BookForm() {
     return (
         <div className="form-container">
             <form className="form" onSubmit={createNewBook}>
+                <h2>Add a Book</h2>
                 <label>Title</label>
                 <input type="text" name="title" id="title" value={title} onChange={changeInput}/>
                 <label>Author</label>
