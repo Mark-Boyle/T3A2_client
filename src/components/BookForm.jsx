@@ -9,7 +9,7 @@ export default function BookForm() {
             author: '',
             year: 1,
             genre: '',
-            status: ''
+            status: 'unread'
         }  
       }
 
@@ -24,6 +24,15 @@ export default function BookForm() {
               }  
           })
       }
+
+    const statusChangeInput = (event) => {
+        setBookForm({
+            book:{
+                ...bookForm.book,
+                [event.target.name]: bookForm.book.status == 'unread' ? 'read' : 'unread'
+            } 
+        })
+    }
 
       const createNewBook = (event) => {
           event.preventDefault();
@@ -46,7 +55,8 @@ export default function BookForm() {
                 <label>Genre</label>
                 <input type="text" name="genre" id="genre" value={genre} onChange={changeInput}/>
                 <label>Status</label>
-                <input type="text" name="status" id="status" value={status} onChange={changeInput}/>
+                <p>{bookForm.book.status}</p>
+                <input className="checkbox" type="checkbox" name="status" id="status" onChange={statusChangeInput}/>
                 <input className="form-button" type="submit" value="Add Book" />
             </form>
         </div>

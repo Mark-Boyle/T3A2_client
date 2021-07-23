@@ -43,3 +43,8 @@
 .label{
     display: inline-block;
 }
+
+.checkbox{
+    filter: invert(100%) hue-rotate(360deg) brightness(1.7);
+}
+
