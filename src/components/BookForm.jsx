@@ -29,7 +29,7 @@ export default function BookForm() {
         setBookForm({
             book:{
                 ...bookForm.book,
-                [event.target.name]: bookForm.book.status == 'unread' ? 'read' : 'unread'
+                [event.target.name]: bookForm.book.status === 'unread' ? 'read' : 'unread'
             } 
         })
     }

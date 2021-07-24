@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import {AuthContext} from "../contexts/AuthProvider";
-import {Form, Button} from 'react-bootstrap';
 import '../styles/Form.css';
 
 export default function LogIn({history}){
@@ -31,7 +30,7 @@ export default function LogIn({history}){
             })
     
             const data = await response.json()              
-            console.log(data)
+            // console.log(data)
             if(data.token){
                 localStorage.setItem('token', data.token)   //Storing the token received from the API in local storage.
                 localStorage.setItem('username', data.username)
@@ -58,7 +57,7 @@ export default function LogIn({history}){
             <>
         <div className="form-container">
             
-            {errorMessage && (<h5>{errorMessage}</h5>)} 
+            {errorMessage && (<h5 className="error-message">{errorMessage}</h5>)} 
             <form className="form" onSubmit={onSubmit}>
                 <h2>Log In</h2>
                 <label>Username: </label>
@@ -68,21 +67,6 @@ export default function LogIn({history}){
                 <input className="form-button" type="submit"/>
             </form>
         </div>
-            {/* <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                
-                <Button variant="primary" type="submit">
-                Submit
-                </Button>
-            </Form> */}
             </>
     )
 }

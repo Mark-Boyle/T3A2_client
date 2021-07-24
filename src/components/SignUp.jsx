@@ -60,7 +60,7 @@ export default function SignUp({history}){
 
     return(
         <div className="form-container">
-            {errorMessage && Object.keys(errorMessage).map((key) => <li key={key}>{key} {errorMessage[key][0]}</li>)}
+            {errorMessage && Object.keys(errorMessage).map((key) => <p className="error-message" key={key}>{key} {errorMessage[key][0]}</p>)}
             <form className="form" onSubmit={signUpUser}>
                 <h2>Sign Up</h2>
                 <label>Username</label>

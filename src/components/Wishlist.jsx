@@ -8,15 +8,12 @@ export default function Wishlist() {
     const [books, setBooks] = useState([])
 
     const fetchBooks = async () => {
-        console.log("Conducting fetchBooks")
         const response = await fetch(process.env.REACT_APP_API_URL + "/books/wishlist", {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
             },
         });
-        console.log("Waiting for response")
         const data = await response.json()
-        console.log(data)
         setBooks(data);
     }
 

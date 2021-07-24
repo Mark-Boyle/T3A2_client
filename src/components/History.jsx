@@ -9,32 +9,23 @@ export default function History() {
     const [update, setUpdate] = useState(false);
 
     const fetchBooks = async () =>{
-        console.log("Conducting fetchBooks")
         const response = await fetch(process.env.REACT_APP_API_URL + "/books/history", {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
             },
         });
-        console.log("Waiting for response")
         const data = await response.json()
         setBooks(data);
-        console.log(data)
     }
-
 
     const deleteBook = (bookId) =>{
         deleteRequest(process.env.REACT_APP_API_URL + `/books/${bookId}`)
-        console.log("After Delete!")
         setUpdate(!update)
-        console.log("after update")
     }
-
     
     useEffect(() => {
         fetchBooks()
     }, [update])
-
-  
 
     return (
         <>
@@ -58,6 +49,3 @@ export default function History() {
         </>
     )
 }
-
-
-//Add logic to only received books with a status of read

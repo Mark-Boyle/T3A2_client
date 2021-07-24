@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import {AuthContext} from "../contexts/AuthProvider";
-import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
+import {Navbar, Container, Nav} from 'react-bootstrap';
 import '../styles/App.css';
 import '../styles/NavBar.css';
 
@@ -19,29 +19,6 @@ export default function NavigationBar() {
     }
     return (
         <>
-        {/* <nav>
-            <NavLink to='/'>Home</NavLink>
-            {auth.loggedIn ? (
-                    <>
-                        <h2>Logged in as: {auth.username}</h2>
-                        <div onClick={signOut}>Sign Out</div>
-                        <NavLink to='/addbook'>Add Book</NavLink>
-                        <NavLink to='/history'>History</NavLink>
-                        <NavLink to='/wishlist'>Wishlist</NavLink>
-
-                    </>
-                ) : (
-                    <>
-                        <NavLink to='/login'>Login</NavLink>
-                        <NavLink to='/sign-up'>Sign Up</NavLink>
-                    </>
-            )}
-        </nav> */}
-        
-
-
-
-
         <Navbar expand='lg' bg="#8F3417" variant="light" className="navbar">
             <Container>
                 <Navbar.Brand style={{color: "#EC9C00", fontSize: "30px"}} href="/">Home</Navbar.Brand>
@@ -70,26 +47,8 @@ export default function NavigationBar() {
                     </Navbar.Collapse>
                 </>
             )}
-
             </Container>
         </Navbar>
-
-
-
-
-{/* <Navbar bg="light" expand="lg">
-  <Container>
-    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-    
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="me-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Link</Nav.Link>
-        
-      </Nav>
-    </Navbar.Collapse>
-  </Container>
-</Navbar> */}
         </>
     );
 }

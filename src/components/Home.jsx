@@ -1,9 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { Link } from "react-router-dom";
 import {AuthContext} from "../contexts/AuthProvider";
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import '../styles/Card.css';
-
 
 export default function Home(){
     const [auth, setAuth] = useContext(AuthContext);
@@ -23,12 +22,10 @@ export default function Home(){
         fetchBooks();
       }, []);
       
-
     return(
         <div>
             {auth.loggedIn ? (
             <div>
-                {/* <h1>Logged In</h1> */}
                 <h2 className="sub-title">Welcome {auth.username}</h2>
             </div>
             ) : <h1 className="sub-title">Not Logged In</h1>}
@@ -43,7 +40,6 @@ export default function Home(){
                     <Card.Text>
                     Author: {book.author}
                     </Card.Text>
-                    {/* <Button className='card-button'>Details</Button> */}
                   </Card.Body>
                 </Card>
                 </Link>

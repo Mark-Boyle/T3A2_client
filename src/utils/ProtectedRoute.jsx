@@ -9,8 +9,7 @@ export default function ProtectedRoute({ component: Comp, path, ...rest }) {
         return(
             <Route path={path} {...rest} render={(props) => {
                 return <Comp {...props} />
-            }} />
-            
+            }} />           
         )
     }
 
