@@ -37,11 +37,13 @@ export default function History() {
   
 
     return (
+        <>
+        <h1 className="sub-title">History</h1>
         <div className="card-container">
             {books.map(book =>     
             <Link style={{textDecoration: "none"}} to={`/books/${book.id}`}>
             <Card className="card" style={{ width: '18rem' }}>
-                  {/* <Card.Img variant="top" src="../../public/defaultImage.jpg" /> */}
+                <Card.Img variant="top" src={book.image} className="card-image"/>
                   <Card.Body>
                     <Card.Title>{book.title}</Card.Title>
                     <Card.Text>
@@ -53,6 +55,7 @@ export default function History() {
                 </Link>
             )}       
         </div>
+        </>
     )
 }
 

@@ -44,7 +44,7 @@ export default function NavigationBar() {
 
         <Navbar expand='lg' bg="#8F3417" variant="light" className="navbar">
             <Container>
-                <Navbar.Brand style={{color: "#EC9C00"}} href="/">Home</Navbar.Brand>
+                <Navbar.Brand style={{color: "#EC9C00", fontSize: "30px"}} href="/">Home</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" style={{color: "#EC9C00"}} className="custom-toggler"/>
             {auth.loggedIn ? (
                 <>
@@ -55,7 +55,7 @@ export default function NavigationBar() {
                         <Nav.Link style={{color: "#EC9C00"}} href="/addbook">Add Book</Nav.Link>
                         
                         <Nav.Link style={{color: "#EC9C00"}} >Logged in as: {auth.username}</Nav.Link>
-                        <Nav.Link style={{color: "#EC9C00"}} onClick={signOut}>Sign Out</Nav.Link>
+                        <Nav.Link style={{color: "#EC9C00", textAlign: "end"}} onClick={signOut}>Sign Out</Nav.Link>
                         
                     </Nav>
                 </Navbar.Collapse>

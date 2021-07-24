@@ -60,6 +60,8 @@ export default function Book({match}) {
 
     return (
         <div className="form-container">
+            <div className="show-page-container">
+            <img src={book.image} alt="image" className="card-image"/>
             <div className="form">
             <h1>{book.title}</h1>
             <h4 className="label">Title: </h4><EditableField value={book.title} updateData={updateData} attribute='title' />
@@ -75,6 +77,7 @@ export default function Book({match}) {
                  <EditableField value={book.review.rating} updateData={updateReview} attribute='rating'/>
                  </div> 
             }
+            </div>
             </div>
         </div>
     )

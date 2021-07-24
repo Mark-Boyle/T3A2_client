@@ -36,7 +36,7 @@ export default function BookForm() {
 
       const createNewBook = (event) => {
           event.preventDefault();
-          postData(process.env.REACT_APP_API_URL + "/books", bookForm)
+          postData(event)
           setBookForm(formInitialState)
       }
 
@@ -56,7 +56,8 @@ export default function BookForm() {
                 <input type="text" name="genre" id="genre" value={genre} onChange={changeInput}/>
                 <label>Status</label>
                 <p>{bookForm.book.status}</p>
-                <input className="checkbox" type="checkbox" name="status" id="status" onChange={statusChangeInput}/>
+                <input className="checkbox" type="checkbox" name="status" id="status" value={status} onChange={statusChangeInput}/>
+                <input type="file" name="bookimage" id="bookimage" accept='image/*'/>
                 <input className="form-button" type="submit" value="Add Book" />
             </form>
         </div>

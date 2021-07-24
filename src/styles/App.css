@@ -13,6 +13,12 @@ body {
     font-size: 100px;
 }
 
+.sub-title{
+    margin: auto;
+    text-align: center;
+    font-size: 60px;
+}
+
 .button{
     background-color: #8F3417;
     color: black;

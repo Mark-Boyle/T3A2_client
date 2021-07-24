@@ -29,5 +29,15 @@
     flex-wrap: wrap;
 }
 
+.card-image{
+    max-height: 80%;
+    max-width: 80%;
+    text-align: center;
+    margin: auto auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: solid 1px black;
+}
+
 
 

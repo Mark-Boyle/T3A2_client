@@ -16,8 +16,8 @@ export default function Wishlist() {
         });
         console.log("Waiting for response")
         const data = await response.json()
-        setBooks(data);
         console.log(data)
+        setBooks(data);
     }
 
     useEffect(() => {
@@ -25,11 +25,13 @@ export default function Wishlist() {
     }, [])
 
     return (
+        <>
+        <h1 className="sub-title">Wishlist</h1>
         <div className="col md={4}">
             <div className="card-container">{books.map(book => <p>      
             <Link style={{textDecoration: "none"}} to={`/books/${book.id}`}>
             <Card className="card" style={{ width: '18rem', backgroundColor: "#EC9C00"}}>
-                  {/* <Card.Img variant="top" src="../../public/defaultImage.jpg" /> */}
+                  <Card.Img variant="top" src={book.image} className="card-image"/>
                   <Card.Body>
                     <Card.Title>{book.title}</Card.Title>
                     <Card.Text>
@@ -41,5 +43,6 @@ export default function Wishlist() {
             </p>)}</div>    
                 
         </div>
+        </>
     )
 }

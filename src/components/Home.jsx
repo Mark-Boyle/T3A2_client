@@ -29,15 +29,15 @@ export default function Home(){
             {auth.loggedIn ? (
             <div>
                 {/* <h1>Logged In</h1> */}
-                <h2>Welcome {auth.username}</h2>
+                <h2 className="sub-title">Welcome {auth.username}</h2>
             </div>
-            ) : <h1>Not Logged In</h1>}
+            ) : <h1 className="sub-title">Not Logged In</h1>}
             <section>
             <div className="card-container">
                 {books.map(book =>
                 <Link style={{textDecoration: "none"}} to={`/books/${book.id}`}>
                 <Card className='card' style={{ width: '18rem' }}>
-                  {/* <Card.Img variant="top" src="../../public/defaultImage.jpg" /> */}
+                  <Card.Img variant="top" src={book.image} className="card-image"/>
                   <Card.Body>
                     <Card.Title>{book.title}</Card.Title>
                     <Card.Text>
