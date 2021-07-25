@@ -26,7 +26,7 @@ export default function EditableField(props) {
 					props.updateData(props.attribute, data)
 					toggleEditable()
 					}} className="form-button">Save</button> */}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#8F3417" class="bi bi-save" viewBox="0 0 16 16" onClick={() => {
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#8F3417" className="bi bi-save" viewBox="0 0 16 16" onClick={() => {
 					    props.updateData(props.attribute, data)
 					    toggleEditable()
 					    }}>

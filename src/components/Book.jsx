@@ -13,10 +13,8 @@ export default function Book({match}) {
     
     const updateData = (attributeName, newValue) => {
         const updateData = {
-            book:{
-                [attributeName]: newValue
-            }
-        }       
+            [attributeName]: newValue
+        }      
         updateRequest(process.env.REACT_APP_API_URL + `/books/${book.id}`, updateData, fetchBook)
     }
 
