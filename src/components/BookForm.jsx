@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import { postData } from '../utils/apiRequest';
 import '../styles/Form.css';
+import { Redirect } from 'react-router-dom';
 
-export default function BookForm() {
+export default function BookForm({history}) {
     const formInitialState = {
         book:{
             title: '',
@@ -36,8 +37,10 @@ export default function BookForm() {
 
       const createNewBook = (event) => {
           event.preventDefault();
-          postData(event)
-          setBookForm(formInitialState)
+          postData(event);
+        //   setBookForm(formInitialState);
+        console.log(status);
+          (status === 'unread') ? history.push('/wishlist') : history.push('/history');
       }
 
 
@@ -46,18 +49,28 @@ export default function BookForm() {
         <div className="form-container">
             <form className="form" onSubmit={createNewBook}>
                 <h2>Add a Book</h2>
-                <label>Title</label>
-                <input type="text" name="title" id="title" value={title} onChange={changeInput}/>
-                <label>Author</label>
-                <input type="text" name="author" id="author" value={author} onChange={changeInput}/>
-                <label>Year</label>
-                <input type="number" name="year" id="year" value={year} onChange={changeInput}/>
-                <label>Genre</label>
-                <input type="text" name="genre" id="genre" value={genre} onChange={changeInput}/>
-                <label>Status</label>
-                <p>{bookForm.book.status}</p>
-                <input className="checkbox" type="checkbox" name="status" id="status" value={status} onChange={statusChangeInput}/>
-                <input type="file" name="bookimage" id="bookimage" accept='image/*'/>
+                <label>Title: 
+                    <input type="text" name="title" id="title" value={title} onChange={changeInput}/>
+                </label>
+                <label>Author: 
+                    <input type="text" name="author" id="author" value={author} onChange={changeInput}/>
+                </label>
+                <label>Year: 
+                    <input type="number" name="year" id="year" value={year} onChange={changeInput}/>
+                </label>
+                <label>Genre: 
+                    <input type="text" name="genre" id="genre" value={genre} onChange={changeInput}/>
+                </label>
+                <label>Status:</label>
+                <label>Read: 
+                    <input className="checkbox" type="checkbox" name="status" id="status" value='read' onChange={changeInput}/>
+                </label>
+                <label>Unread: 
+                    <input className="checkbox" type="checkbox" name="status" id="status" value='unread' onChange={changeInput}/>
+                </label>
+                <label>Image:  
+                    <input type="file" name="bookimage" id="bookimage" accept='image/*'/>
+                </label>
                 <input className="form-button" type="submit" value="Add Book" />
             </form>
         </div>
