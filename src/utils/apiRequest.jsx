@@ -44,3 +44,16 @@ export const updateRequest = async (url, body, callBack) => {
     if(callBack) {callBack()} 
     return data
 }
+
+export const postReview = async (body) => {
+    const response = await fetch(process.env.REACT_APP_API_URL + '/reviews', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+    const data = await response.json();
+    return data
+}

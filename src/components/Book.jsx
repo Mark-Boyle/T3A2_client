@@ -2,10 +2,13 @@ import React, {useEffect, useState} from 'react'
 import {fetchData, updateRequest} from '../utils/apiRequest';
 import EditableField from './EditableField';
 import '../styles/Form.css';
+import ReviewForm from './ReviewForm';
 
 export default function Book({match}) {
-    const [book, setBook] = useState({});
 
+    console.log(match.params.id)
+    const [book, setBook] = useState({});
+    
     const fetchBook = async () => {
         const data = await fetchData(process.env.REACT_APP_API_URL + `/books/${match.params.id}`)
         setBook(data);  
@@ -26,11 +29,12 @@ export default function Book({match}) {
         }  
         updateRequest(process.env.REACT_APP_API_URL + `/reviews/${book.id}`, updateData, fetchBook)
     }
- 
+    
     useEffect(() => {
         fetchBook();
     }, [])
-
+    
+    console.log(book.id)
     return (
         <div className="form-container">
             <div className="show-page-container">
@@ -46,11 +50,16 @@ export default function Book({match}) {
                     <h4 className="label">Status: </h4><EditableField value={book.status} updateData={updateData} attribute='status'/>
                     {/* wrapped in short circuit logic */}
                     
-                    {book.review && <div>
+                    {(book.status === 'read') &&
+                    ((book.review) ?
+                     <div>
                         <h3>Review</h3>
                         <EditableField value={book.review.description} updateData={updateReview} attribute='description'/>
                         <EditableField value={book.review.rating} updateData={updateReview} attribute='rating'/>
-                    </div>}
+                    </div>
+                    :
+                        <ReviewForm book_id={book.id}/>
+                    )}
                 </div>
             </div>
         </div>
