@@ -50,4 +50,8 @@
     border: solid 1px black;
 }
 
-
+.card-link{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}

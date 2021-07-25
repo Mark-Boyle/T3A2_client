@@ -9,7 +9,6 @@ export const fetchData = async (url) => {
 
 export const postData = async (event) => {
     const formData = new FormData(event.target)
-    console.log(formData)
     const response = await fetch(process.env.REACT_APP_API_URL + '/books', {
         method: 'POST',
         headers: {
@@ -43,5 +42,18 @@ export const updateRequest = async (url, body, callBack) => {
     })
     const data = await response.json();
     if(callBack) {callBack()} 
+    return data
+}
+
+export const postReview = async (body) => {
+    const response = await fetch(process.env.REACT_APP_API_URL + '/reviews', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+    const data = await response.json();
     return data
 }
