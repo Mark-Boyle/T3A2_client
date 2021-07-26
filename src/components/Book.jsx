@@ -63,7 +63,7 @@ export default function Book({match}) {
                             
                         </div>
                         : 
-                        {/* If no review exists and the user logged in is the same as the user id for the book then render the review form to create a new review */}
+                        // If no review exists and the user logged in is the same as the user id for the book then render the review form to create a new review
                         (auth.userId == book.user_id) &&
                             <>
                                 <ReviewForm book_id={book.id}/>
