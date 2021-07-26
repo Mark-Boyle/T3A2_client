@@ -30,16 +30,19 @@ export default function LogIn({history}){
             })
     
             const data = await response.json()              
-            // console.log(data)
+            console.log(data)
             if(data.token){
                 localStorage.setItem('token', data.token)   //Storing the token received from the API in local storage.
                 localStorage.setItem('username', data.username)
+                localStorage.setItem('userId', data.user_id)
                     console.log("Success!!!")
                 setAuth({
                     ...auth,
                     username: data.username,
                     email: data.email,
-                    loggedIn: true
+                    loggedIn: true,
+                    userId: data.user_id
+
                 })
                     history.push('/')     //Redirecting to home page.
 
