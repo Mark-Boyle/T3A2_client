@@ -8,7 +8,8 @@ export default function AuthProvider({children}) {
 
     const [auth, setAuth] = useState({
         loggedIn: !!localStorage.getItem('token'),
-        username: localStorage.getItem('username')
+        username: localStorage.getItem('username'),
+        userId: localStorage.getItem('userId')
     })
     return (
         <AuthContext.Provider value={[auth, setAuth]}>

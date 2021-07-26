@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { postReview } from '../utils/apiRequest';
 import '../styles/Form.css';
-
 export default function ReviewForm(props) {
 
     console.log("Review match:")
@@ -32,7 +31,7 @@ export default function ReviewForm(props) {
         setReviewForm(formInitialState);
     }
 
-    const {book_id, description, rating} = reviewForm
+    const {book_id, description, rating} = reviewForm.review
 
     return (
         <div>
