@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { postReview } from '../utils/apiRequest';
 import '../styles/Form.css';
+
 export default function ReviewForm(props) {
 
     console.log("Review match:")
@@ -26,7 +27,7 @@ export default function ReviewForm(props) {
     }
 
     const createNewReview = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         postReview(reviewForm);
         setReviewForm(formInitialState);
     }
