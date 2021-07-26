@@ -1,16 +1,29 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import { createMemoryHistory } from "history";
 import Book from "../Book";
-
+import {Router} from 'react-router-dom'
+// have to pass in the params that it is expecting
 describe("Book", () => {
   it("should have a title", () => {
-    render(<Book />);
+    render(<Book match={{ params: { id: 1 } }} />);
     // screen.debug
     expect(screen.getByText(/title/i)).toBeInTheDocument();
   });
 
+  {
+    /* <Router history={history}>
+      <Book />
+    </Router> */
+  }
+
   it("should have a author", () => {
-    render(<Book />);
+    const history = createMemoryHistory();
+    render(
+      <Router history={history}>
+        <Book />
+      </Router>
+    );
     // screen.debug
     expect(screen.getByText(/author/i)).toBeInTheDocument();
   });
@@ -30,10 +43,9 @@ describe("Book", () => {
     expect(screen.getByText(/status/i)).toBeInTheDocument();
   });
 
-  // it("renders without crashing", () => {
-  //     render(<Book />);
-  //   expect(screen.findByDisplayValue(<Book/>))
+  it("renders without crashing", () => {
+      render(<Book />);
+    expect(screen.findByDisplayValue(<Book/>))
 
-  // });
-
+  });
 });
