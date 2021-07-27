@@ -12,8 +12,6 @@ import ProtectedRoute from "../utils/ProtectedRoute";
 import Book from './Book';
 import '../styles/App.css';
 
-
-
 function App() {
   
   return (

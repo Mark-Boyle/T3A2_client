@@ -44,7 +44,6 @@ export default function Home(){
                 </Card>
                 </Link>
                 )}
-            
             </div>
             </section>
         </div>

@@ -38,12 +38,13 @@ export default function SignUp({history}){
         if(data.token){
             localStorage.setItem('token', data.token)   //Storing the token received from the API in local storage.
             localStorage.setItem('username', data.username)
-                console.log("Success!!!")
+            localStorage.setItem('userId', data.user_id)
                 setAuth({
                     ...auth,
                     username: data.username,
                     email: data.email,
-                    loggedIn: true
+                    loggedIn: true,
+                    userId: data.user_id
                 })
                 history.push('/')
         }else{

@@ -5,7 +5,6 @@ import EditableField from './EditableField';
 import {AuthContext} from "../contexts/AuthProvider";
 import '../styles/Form.css';
 
-
 export default function Book({match}) {
 
     const [book, setBook] = useState({});

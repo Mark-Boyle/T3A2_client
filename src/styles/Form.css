@@ -1,7 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-
 .form{
     display: flex;
     flex-direction: column;

@@ -30,12 +30,10 @@ export default function LogIn({history}){
             })
     
             const data = await response.json()              
-            console.log(data)
             if(data.token){
                 localStorage.setItem('token', data.token)   //Storing the token received from the API in local storage.
                 localStorage.setItem('username', data.username)
                 localStorage.setItem('userId', data.user_id)
-                    console.log("Success!!!")
                 setAuth({
                     ...auth,
                     username: data.username,
@@ -57,19 +55,19 @@ export default function LogIn({history}){
     }
 
     return(
-            <>
-        <div className="form-container">
-            
-            {errorMessage && (<h5 className="error-message">{errorMessage}</h5>)} 
-            <form className="form" onSubmit={onSubmit}>
-                <h2>Log In</h2>
-                <label>Username: </label>
-                <input type="text" name="username" id='username' placeholder="username" value ={loginForm.username} onChange={changeInput} />
-                <label>Password: </label>
-                <input type="password" name="password" id='password' placeholder="password" value ={loginForm.password} onChange={changeInput} />
-                <input className="form-button" type="submit"/>
-            </form>
-        </div>
-            </>
+        <>
+            <div className="form-container">
+                
+                {errorMessage && (<h5 className="error-message">{errorMessage}</h5>)} 
+                <form className="form" onSubmit={onSubmit}>
+                    <h2>Log In</h2>
+                    <label>Username: </label>
+                    <input type="text" name="username" id='username' placeholder="username" value ={loginForm.username} onChange={changeInput} />
+                    <label>Password: </label>
+                    <input type="password" name="password" id='password' placeholder="password" value ={loginForm.password} onChange={changeInput} />
+                    <input className="form-button" type="submit"/>
+                </form>
+            </div>
+        </>
     )
 }

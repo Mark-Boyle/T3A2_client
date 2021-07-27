@@ -4,9 +4,6 @@ import '../styles/Form.css';
 
 export default function ReviewForm(props) {
 
-    console.log("Review match:")
-    console.log(props.book_id)
-
     const formInitialState = {
         review: {
             book_id: (props.book_id),
@@ -27,7 +24,6 @@ export default function ReviewForm(props) {
     }
 
     const createNewReview = (event) => {
-        // event.preventDefault();
         postReview(reviewForm);
         setReviewForm(formInitialState);
     }

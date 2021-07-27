@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { postData } from '../utils/apiRequest';
 import '../styles/Form.css';
-import { Redirect } from 'react-router-dom';
 
 export default function BookForm({history}) {
     const formInitialState = {
@@ -16,7 +15,6 @@ export default function BookForm({history}) {
 
     const [bookForm, setBookForm] = useState(formInitialState)
     
-    
     const changeInput = (event) => {
           setBookForm({
               book:{
@@ -26,20 +24,9 @@ export default function BookForm({history}) {
           })
       }
 
-    const statusChangeInput = (event) => {
-        setBookForm({
-            book:{
-                ...bookForm.book,
-                [event.target.name]: bookForm.book.status === 'unread' ? 'read' : 'unread'
-            } 
-        })
-    }
-
       const createNewBook = (event) => {
           event.preventDefault();
           postData(event);
-        //   setBookForm(formInitialState);
-        console.log(status);
           (status === 'unread') ? history.push('/wishlist') : history.push('/history');
       }
 
